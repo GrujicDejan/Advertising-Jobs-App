@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// .gradient-custom {
+
+// 	background: #6a11cb;
+	
+
+// 	background: -webkit-linear-gradient(to top, rgba(37, 37, 255), rgba(22, 28, 38, 1));
+	
+
+// 	background: linear-gradient(to top, rgba(37, 37, 255), rgba(22, 28, 38, 1))
+// }

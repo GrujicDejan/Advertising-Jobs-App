@@ -1,0 +1,8 @@
+<div class="input-icons">
+    <i class="fa fa-search fa-2x icon"></i>
+    <input type="text" class="search-input form-control" placeholder="Search jobs" name="searchBox" [(ngModel)]="searchTerm" (keyup)="search()" />
+</div>
+
+<app-job-item [job]="job" *ngFor="let job of jobs$| async">
+            
+</app-job-item>

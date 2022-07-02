@@ -1,0 +1,123 @@
+<div class="center">
+    <h2>Enter Job Ad</h2>
+    
+    <form #form="ngForm" (ngSubmit)="addJobAd(form)">
+        <div class="container-fluid">
+            <div ngModelGroup="jobInfo">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" ngModel placeholder="Enter job title" #jobTitle="ngModel" name="jobTitle" required >
+                        <div class="error" *ngIf="jobTitle.invalid && (jobTitle.dirty || message)">
+                            <div *ngIf="jobTitle.hasError('required')">
+                                Title is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="company" class="form-label">Company name</label>
+                        <input type="text" class="form-control" ngModel placeholder="Enter company name" #company="ngModel" name="company" required>
+                        <div class="error" *ngIf="company.invalid && company.dirty">
+                            <div *ngIf="company.hasError('required')">
+                                Company name is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" class="form-control" ngModel placeholder="Enter email" #email="ngModel" name="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" required>
+                        <div class="error" *ngIf="email.invalid && email.dirty">
+                            <div *ngIf="email.hasError('required')">
+                                Email is required.
+                            </div>
+                            <div *ngIf="email.hasError('pattern')">
+                                Email is pattern wrong.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea type="text"  class="form-control" ngModel #description="ngModel" name="description" placeholder="Enter description" required></textarea>
+                        <div class="error" *ngIf="description.invalid && description.dirty">
+                            <div *ngIf="description.hasError('required')">
+                                Description is required.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" class="form-control" ngModel placeholder="Enter location" #location="ngModel" name="location" required>
+                        <div class="error" *ngIf="location.invalid && location.dirty">
+                            <div *ngIf="location.hasError('required')">
+                                Location is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="engagement" class="form-label">Engagement</label>
+                        <input type="text" class="form-control" ngModel placeholder="Enter engagement" #engagement="ngModel" name="engagement" required>
+                        <div class="error" *ngIf="engagement.invalid && engagement.dirty">
+                            <div *ngIf="engagement.hasError('required')">
+                                Engagement is required.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="skills" class="form-label">Skills</label>
+                        <input type="text" class="form-control" ngModel placeholder="Enter skills" #skills="ngModel" name="skills" required>
+                        <div class="error" *ngIf="skills.invalid && skills.dirty">
+                            <div *ngIf="skills.hasError('required')">
+                                Skills is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="requiredEducation" class="form-label">Required education</label>
+                        <input type="text" class="form-control" ngModel placeholder="Enter required education" #requiredEducation="ngModel" name="requiredEducation" required>
+                        <div class="error" *ngIf="requiredEducation.invalid && requiredEducation.dirty">
+                            <div *ngIf="requiredEducation.hasError('required')">
+                                Required education is required.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="benefits" class="form-label">Benefits</label>
+                        <input type="text" class="form-control" ngModel placeholder="Enter benefits" #benefits="ngModel" name="benefits" required>
+                        <div class="error" *ngIf="benefits.invalid && benefits.dirty">
+                            <div *ngIf="benefits.hasError('required')">
+                                Benefits is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="salary" class="form-label">Salary</label>
+                        <input type="number" class="form-control" ngModel placeholder="Enter salary" #salary="ngModel" name="salary" required>
+                        <div class="error" *ngIf="salary.invalid && salary.dirty">
+                            <div *ngIf="salary.hasError('required')">
+                                Salary is required.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary mr-2">Add</button>
+            <div class="error" style="margin-top: 10px;">
+                {{message}}
+            </div>
+        </div>
+    </form>
+
+</div>

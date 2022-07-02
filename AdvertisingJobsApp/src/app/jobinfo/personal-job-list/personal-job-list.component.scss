@@ -1,0 +1,24 @@
+.search-input {
+   
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 991px) {
+    .search-input {
+        margin-left: 10px;
+        margin-top: 10px;
+        width: 98%;
+    }
+}
+
+@media (max-width: 500px) {
+    .search-input {
+        margin-left: 10px;
+        margin-top: 10px;
+        width: 96%;
+    }
+}

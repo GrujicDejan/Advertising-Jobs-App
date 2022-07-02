@@ -1,0 +1,43 @@
+<div class="center">
+    <h2>Enter your info</h2>
+    <form #form="ngForm" (ngSubmit)="apply(form)">
+        <div ngModelGroup="applyInfo" class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="title" >mailTo:</label>
+                    <p class="form-control">{{email}}</p>
+                </div>
+                <div class="col-md-4">
+                    <label for="title" >Subject:</label>
+                    <p class="form-control">{{title}}</p>
+                </div>
+                <div class="col-md-4">
+                    <label for="cv" >Portfolio (link):</label>
+                    <input type="url" class="form-control" ngModel placeholder="Enter your protfolio link (github, gitlab...)" #protfolio="ngModel" name="protfolio" rows="5" required>
+                    <div class="error" *ngIf="protfolio.invalid && protfolio.dirty">
+                        <div *ngIf="protfolio.hasError('required')">
+                            Portfolio link is required.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="content" class="form-label">Content</label>
+                    <textarea type="text" class="form-control" ngModel placeholder="Enter content" #content="ngModel" name="content" rows="5" required></textarea>
+                    <div class="error" *ngIf="content.invalid && content.dirty">
+                        <div *ngIf="content.hasError('required')">
+                            Content is required.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary mr-2">Apply</button>
+            <div class="error" style="margin-top: 10px;">
+                {{message}}
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,46 @@
+<body style="background-color: #508bfc;" class="gradient-custom">
+    <div class="form-group">
+        <form (ngSubmit)="register(registerForm)" #registerForm="ngForm">
+            <section class="vh-100">
+                <div class="container py-5 h-100">
+                  <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                      <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center">
+              
+                          <h2 class="fw-bold mb-2 text-uppercase">Sign In</h2>
+                          <p class="text-50 mb-5" *ngIf="message == ''">Please enter username and password!</p>
+                          <p class="text-50 mb-5" *ngIf="message != ''" style="color: red">{{message}}</p>
+
+                          <div class="form-outline mb-4">
+                            <div class="error" *ngIf="username.invalid && username.dirty">
+                              <div *ngIf="username.hasError('required')">
+                                  Username is required.
+                              </div>
+                            </div>
+                            <input type="text" class="form-control form-control-lg" required name="username" ngModel #username="ngModel">
+                            <label class="form-label" for="username">Username</label>
+                          </div>
+              
+                          <div class="form-outline mb-4">
+                            <div class="error" *ngIf="password.invalid && password.dirty">
+                              <div *ngIf="password.hasError('required')">
+                                  Password is required.
+                              </div>
+                            </div>
+                            <input type="password" class="form-control form-control-lg" required name="password" ngModel #password="ngModel">
+                            <label class="form-label" for="password">Password</label>
+                          </div>
+              
+                          <button class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
+              
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+        </form>
+    </div>
+</body>
+

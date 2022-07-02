@@ -1,0 +1,77 @@
+<div class="container job-item-section">
+    <div class="card bg-light mb-3 border-primary">
+    <!-- <div class="card text-white bg-info mb-3"> -->
+        <div class="card-body">
+            <div class="row">
+                <h2 class="card-title">{{job.jobTitle}}</h2>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <p><b>by {{job.company}}</b></p>
+                </div>
+                <div class="col-6">
+                    <p style="text-align: right;">{{job.date}}</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <h6>Skills: {{job.skills}}</h6>
+            </div>
+            <div class="row">
+                <h4>Description</h4>
+                <output>
+                    <p style="text-align: justify; min-height: 200px; vertical-align: text-top;">{{job.description}}</p>
+                </output>
+            </div>
+            <div class="row">
+                <p>Required education: {{job.requiredEducation}}</p>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <p>Location: {{job.location}}</p>
+                </div>
+                <div class="col-6">
+                    <p style="text-align: right;">Engagement: {{job.engagement}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <p>Benefits: {{job.benefits}}</p>
+            </div>
+
+            <div class="row" >
+                <div class="col-6" *ngIf="job.user != user">
+                    <button class="btn-apply btn" (click)="apply(job.jobTitle, job.email)">Apply</button>
+                </div>
+                <div class="col-6" *ngIf="job.user == user && show">
+                    <button class="btn-view btn" (click)="veiwJobApplications()"
+                        [disabled]="job.applications == null">View all job applications</button>
+                </div>
+                <div class="col-6" *ngIf="job.user == user && !show">
+                    <button class="btn-view btn" (click)="veiwJobApplications()"
+                        [disabled]="job.applications == null">Close</button>
+                </div>
+                <div class="col-6" *ngIf="job.user == user" style="text-align: right;">
+                    <button class="btn-delete btn" (click)="delete(job.jobTitle, job.company)">Delete</button>
+                </div>
+                <div class="col-6 " *ngIf="job.user != user">
+                    <p class="salary">{{job.salary}}€</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-body" [class.dont-show]="show">
+            <div *ngFor="let a of job.applications">
+                <div class="row">
+                    <div class="col-10">
+                        <h5>Content</h5>
+                        {{a.content}}
+                    </div>
+                    <div class="col-2">
+                        <h5>Portfolio</h5>
+                        <a href={{a.portfolio}} target="_blank">Click to view</a>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
