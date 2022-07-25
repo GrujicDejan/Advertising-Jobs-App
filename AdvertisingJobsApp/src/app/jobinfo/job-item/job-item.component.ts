@@ -1,9 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { ApplyModel } from 'src/app/model/applyModel';
 import { JobInfoModel } from 'src/app/model/jobInfoModel';
 import { JobService } from 'src/app/services/job.service';
+import { DialogApplyComponent } from '../dialog-apply/dialog-apply.component';
+import { DialogContentExampleComponent } from '../dialog-content-example/dialog-content-example.component';
 
 @Component({
   selector: 'app-job-item',
@@ -19,9 +21,7 @@ export class JobItemComponent implements OnInit {
 
   public applications: ApplyModel[];
 
-  show = true;
-
-  constructor(private router:Router, private jobService:JobService) { }
+  constructor(private router:Router, private jobService:JobService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.user = localStorage.getItem("user") || '';
@@ -40,8 +40,16 @@ export class JobItemComponent implements OnInit {
     });
   }
 
-  veiwJobApplications() {
-    this.show = !this.show;
+  viewDialog() {
+    this.dialog.open(DialogContentExampleComponent, {
+      data: this.job.applications
+    });
+  }
+
+  applyDialog() {
+    this.dialog.open(DialogApplyComponent, {
+      data: this.job
+    });
   }
 
 }

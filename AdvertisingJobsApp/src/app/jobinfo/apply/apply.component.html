@@ -1,18 +1,18 @@
 <div class="center">
-    <h2>Enter your info</h2>
-    <form #form="ngForm" (ngSubmit)="apply(form)">
+    <h2 style="font-size: 2em;">Enter your info</h2>
+    <form #form="ngForm" (ngSubmit)="apply(form)" style="font-size: 1.1em;">
         <div ngModelGroup="applyInfo" class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
-                    <label for="title" >mailTo:</label>
+                    <label for="title" style="margin-bottom: 0;">mailTo:</label>
                     <p class="form-control">{{email}}</p>
                 </div>
                 <div class="col-md-4">
-                    <label for="title" >Subject:</label>
+                    <label for="title" style="margin-bottom: 0;">Subject:</label>
                     <p class="form-control">{{title}}</p>
                 </div>
                 <div class="col-md-4">
-                    <label for="cv" >Portfolio (link):</label>
+                    <label for="cv" style="margin-bottom: 0;">Portfolio (link):</label>
                     <input type="url" class="form-control" ngModel placeholder="Enter your protfolio link (github, gitlab...)" #protfolio="ngModel" name="protfolio" rows="5" required>
                     <div class="error" *ngIf="protfolio.invalid && protfolio.dirty">
                         <div *ngIf="protfolio.hasError('required')">
@@ -24,7 +24,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <label for="content" class="form-label">Content</label>
+                    <label for="content" class="form-label" style="margin-bottom: 0;">Content</label>
                     <textarea type="text" class="form-control" ngModel placeholder="Enter content" #content="ngModel" name="content" rows="5" required></textarea>
                     <div class="error" *ngIf="content.invalid && content.dirty">
                         <div *ngIf="content.hasError('required')">

@@ -37,10 +37,6 @@ export class JobService {
     );
   }
 
-  getJobApplications(applications:ApplyModel[]) {
-    
-  }
-
   addJobAd(jobAd:JobInfoModel): Observable<any> {
     return this.httpClient.post(this.BACKEND_BASE + '/api/jobs', jobAd);
   }

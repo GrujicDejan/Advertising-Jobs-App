@@ -1,0 +1,43 @@
+
+<mat-dialog-content class="mat-typography">
+    <h1>{{data.jobTitle}} - {{data.company}}</h1>
+    <form (ngSubmit)="apply(applyForm)" #applyForm="ngForm">
+        <div ngModelGroup="applyInfo" class="container-fluid">
+            <table>
+                <tr>
+                    <th>
+                        Content:
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="fill" [style.width.px]=450>
+                            <mat-label><i>Enter the content</i></mat-label>
+                            <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                                cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" name="content" ngModel
+                                #content="ngModel" required></textarea>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Content:<br>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="fill" [style.width.px]=450>
+                            <mat-label><i>Enter your protfolio link (github, gitlab...)</i></mat-label>
+                            <input type="url" matInput name="portfolio" #portfolio="ngModel" ngModel required>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                
+            </table>
+            <button mat-button style="border: 1px solid blue; color: blue" type="submit">Apply</button>
+        </div>
+    </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+    <!-- <button mat-button mat-dialog-close style="border: 1px solid blue;">Close</button> -->
+</mat-dialog-actions>

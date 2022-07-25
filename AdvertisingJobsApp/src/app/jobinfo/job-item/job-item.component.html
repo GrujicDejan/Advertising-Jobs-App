@@ -3,7 +3,7 @@
     <!-- <div class="card text-white bg-info mb-3"> -->
         <div class="card-body">
             <div class="row">
-                <h2 class="card-title">{{job.jobTitle}}</h2>
+                <h2 class="card-title" style="font-size: 2.5em;">{{job.jobTitle}}</h2>
             </div>
             <div class="row">
                 <div class="col-6">
@@ -15,61 +15,43 @@
             </div>
             <br>
             <div class="row">
-                <h6>Skills: {{job.skills}}</h6>
+                <h6 style="font-size: 1.2em;">Skills: {{job.skills}}</h6>
             </div>
             <div class="row">
-                <h4>Description</h4>
+                <h4 style="font-size: 1.5em;">Description</h4>
                 <output>
-                    <p style="text-align: justify; min-height: 200px; vertical-align: text-top;">{{job.description}}</p>
+                    <p style="text-align: justify; min-height: 200px; vertical-align: text-top; font-size: 1.1em;">{{job.description}}</p>
                 </output>
             </div>
             <div class="row">
-                <p>Required education: {{job.requiredEducation}}</p>
+                <p style="font-size: 1.1em;">Required education: {{job.requiredEducation}}</p>
             </div>
             <div class="row">
                 <div class="col-6">
-                    <p>Location: {{job.location}}</p>
+                    <p style="font-size: 1.1em;">Location: {{job.location}}</p>
                 </div>
                 <div class="col-6">
-                    <p style="text-align: right;">Engagement: {{job.engagement}}</p>
+                    <p style="text-align: right; font-size: 1.1em;">Engagement: {{job.engagement}}</p>
                 </div>
             </div>
             <div class="row">
-                <p>Benefits: {{job.benefits}}</p>
+                <p style="font-size: 1.1em;">Benefits: {{job.benefits}}</p>
             </div>
 
             <div class="row" >
                 <div class="col-6" *ngIf="job.user != user">
-                    <button class="btn-apply btn" (click)="apply(job.jobTitle, job.email)">Apply</button>
+                    <!-- <button class="btn-apply btn" (click)="apply(job.jobTitle, job.email)">Apply</button> -->
+                    <button class="btn-apply btn" (click)="applyDialog()">Apply</button>
                 </div>
-                <div class="col-6" *ngIf="job.user == user && show">
-                    <button class="btn-view btn" (click)="veiwJobApplications()"
-                        [disabled]="job.applications == null">View all job applications</button>
+                <div class="col-6" *ngIf="job.user == user">
+                    <button class="btn-view btn" (click)="viewDialog()" >View all job applications</button>
                 </div>
-                <div class="col-6" *ngIf="job.user == user && !show">
-                    <button class="btn-view btn" (click)="veiwJobApplications()"
-                        [disabled]="job.applications == null">Close</button>
-                </div>
+
                 <div class="col-6" *ngIf="job.user == user" style="text-align: right;">
                     <button class="btn-delete btn" (click)="delete(job.jobTitle, job.company)">Delete</button>
                 </div>
-                <div class="col-6 " *ngIf="job.user != user">
-                    <p class="salary">{{job.salary}}€</p>
-                </div>
-            </div>
-        </div>
-        <div class="card-body" [class.dont-show]="show">
-            <div *ngFor="let a of job.applications">
-                <div class="row">
-                    <div class="col-10">
-                        <h5>Content</h5>
-                        {{a.content}}
-                    </div>
-                    <div class="col-2">
-                        <h5>Portfolio</h5>
-                        <a href={{a.portfolio}} target="_blank">Click to view</a>
-                    </div>
-                    <hr>
+                <div class="col-6 " style="margin: auto; padding: auto;" *ngIf="job.user != user">
+                    <p class="salary" >{{job.salary}}€</p>
                 </div>
             </div>
         </div>

@@ -15,8 +15,15 @@ import { PersonalJobListComponent } from './jobinfo/personal-job-list/personal-j
 import { AddJobAdComponent } from './jobinfo/add-job-ad/add-job-ad.component';
 import { ApplyComponent } from './jobinfo/apply/apply.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import {MatGridListModule} from '@angular/material/grid-list';
-// import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogContentExampleComponent } from './jobinfo/dialog-content-example/dialog-content-example.component';
+import { DialogApplyComponent } from './jobinfo/dialog-apply/dialog-apply.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+
+
+
 
 
 @NgModule({
@@ -28,14 +35,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     JobListComponent,
     PersonalJobListComponent,
     AddJobAdComponent,
-    ApplyComponent
+    ApplyComponent,
+    DialogContentExampleComponent,
+    DialogApplyComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [AuthGuard, {provide: HTTP_INTERCEPTORS, useClass:TokenInterceptor, multi:true}],
   bootstrap: [AppComponent]

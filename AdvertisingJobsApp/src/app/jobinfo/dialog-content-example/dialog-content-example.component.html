@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Job Applications</h1>
+<div mat-dialog-content>
+
+    <div *ngFor="let a of data">
+        <div class="row">
+            <div class="col-10">
+                <h5>Content</h5>
+                {{a.content}}
+            </div>
+            <div class="col-2">
+                <h5>Portfolio</h5>
+                <a href={{a.portfolio}} target="_blank">Click to view</a>
+            </div>
+            <hr>
+        </div>
+    </div>
+  
+</div>
